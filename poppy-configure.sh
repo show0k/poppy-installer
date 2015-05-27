@@ -39,7 +39,7 @@ chmod -w /etc/sudoers
 usermod --pass='*' root # don't need root password anymore
 
 # Download and run poppy-tools install
-wget -P /usr/local/bin/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools.sh
+su - poppy -c "wget -P /usr/local/bin/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools.sh"
 mv /usr/local/bin/poppy-tools.sh /usr/local/bin/poppy-tools
 chmod +x /usr/local/bin/poppy-tools
 su - poppy -c "poppy-tools install $@"
