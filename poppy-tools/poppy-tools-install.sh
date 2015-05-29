@@ -1,6 +1,6 @@
 #! /bin/bash
 
-apt-get install subversion
+sudo apt-get install -y subversion
 
 echo -e "\e[33mDownload sources\e[0m"
 svn checkout https://github.com/poppy-project/poppy-installer/trunk/poppy-tools /home/poppy/dev/poppy-tools

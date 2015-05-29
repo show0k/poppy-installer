@@ -17,7 +17,7 @@ then
 fi
 
 # Change hostname to poppy
-apt-get install avahi-daemon passwd libnss-mdns
+apt-get install -y avahi-daemon passwd libnss-mdns
 echo -e "\e[33mDefault Hostname change to \e[4mpoppy\e[0m."
 echo 'poppy' > /etc/hostname
 echo '127.0.0.1     poppy' >> /etc/hosts
