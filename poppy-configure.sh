@@ -28,7 +28,7 @@ echo -e "\e[33mCreate a new user \e[4mpoppy\e[0m\e[33m with the default password
 useradd -m -s /bin/bash -G adm,dialout,fax,cdrom,floppy,tape,sudo,audio,dip,video,plugdev,netdev,lpadmin,fuse poppy
 echo poppy:poppy | chpasswd
 export HOME=/home/poppy
-su - poppy -c "wget -P  /home https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy_logo"
+su - poppy -c "wget -P  /home/poppy/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-logo"
 sed -i /poppy-logo/d /home/poppy/.bashrc
 echo cat /home/poppy-logo >> /home/poppy/.bashrc
 
