@@ -1,6 +1,6 @@
 #! /bin/bash
 
-wget -P /tmp/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/conf/$POPPY_BOARD/$POPPY_CREATURE/install-poppy.conf
+wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/conf/$POPPY_BOARD/$POPPY_CREATURE/install.conf -O /tmp/install-poppy.conf
 
 while IFS=" " read name file_link
 do
