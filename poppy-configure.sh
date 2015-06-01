@@ -44,4 +44,4 @@ mv /home/poppy/poppy-tools.sh /usr/local/bin/poppy-tools
 chmod +x /usr/local/bin/poppy-tools
 su - poppy -c "mkdir /home/poppy/dev /home/poppy/dev/poppy-tools"
 
-su - poppy -c "poppy-tools install $@"
+su - poppy -c "poppy-tools install $*"
