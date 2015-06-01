@@ -10,6 +10,14 @@ fi
 
 shift
 
+function print_man {
+               echo "poppy-tools install [board] [creature]."
+               echo "Supported boards list :"
+               cat /home/poppy/dev/poppy-tools/poppy-boards
+               echo "Supported creatures list :"
+               cat /home/poppy/dev/poppy-tools/poppy-creatures
+           }
+
 if [ $command_name = "install" ]; then
   sudo apt-get install -y subversion
 
@@ -35,7 +43,6 @@ if [ $command_name = "install" ]; then
       exit 0
   fi
 
-
   if grep -Fxq "$2" /home/poppy/dev/poppy-tools/poppy-creatures
   then
       # code if found
@@ -51,13 +58,6 @@ if [ $command_name = "install" ]; then
   fi
   bash /home/poppy/dev/poppy-tools/poppy-tools-update.sh
 
-  function print_man {
-                 echo "poppy-tools install [board] [creature]."
-                 echo "Supported boards list :"
-                 cat /home/poppy/dev/poppy-tools/poppy-boards
-                 echo "Supported creatures list :"
-                 cat /home/poppy/dev/poppy-tools/poppy-creatures
-             }
 else
   bash /home/poppy/dev/poppy-tools/poppy-tools-$command_name.sh $@ || echo "please try 'poppy-tools help' command"
 fi
