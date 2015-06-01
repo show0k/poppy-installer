@@ -54,6 +54,12 @@ if [ $command_name = "install" ]; then
       print_man
       exit 0
   fi
+
+  sed -i /POPPY_ROOT/d /home/poppy/.bashrc
+  echo "export POPPY_ROOT=/home/poppy/dev" >> /home/poppy/.bashrc
+  export POPPY_ROOT=/home/poppy/dev
+  mkdir -p $POPPY_ROOT
+
   bash /home/poppy/dev/poppy-tools/poppy-tools-update.sh
 
 else
