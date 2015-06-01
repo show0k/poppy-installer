@@ -24,8 +24,6 @@ if [ $command_name = "install" ]; then
   echo -e "\e[33mDownload sources\e[0m"
   svn checkout https://github.com/poppy-project/poppy-installer/trunk/poppy-tools /home/poppy/dev/poppy-tools
 
-  bash /home/poppy/dev/poppy-tools/poppy-tools-update.sh
-
   # check env var value
   if grep -Fxq "$1" /home/poppy/dev/poppy-tools/poppy-boards
   then
