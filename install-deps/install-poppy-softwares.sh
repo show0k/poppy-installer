@@ -1,15 +1,19 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 for repo in pypot poppy-creature $POPPY_CREATURE
 do
   cd $POPPY_ROOT
 
   if [ ! -z "$use_stable_release" ]; then
-    pip install $repo
+    pip install $repo -U
   else
-    git clone https://github.com/poppy-project/$repo.git
+    if [ ! -d "$repo" ]; then
+      git clone https://github.com/poppy-project/$repo.git
+    fi
 
     cd $repo
+    git pull
+
     if [[ $repo == poppy-* ]]; then
       cd software
     fi
@@ -17,4 +21,4 @@ do
     python setup.py develop
 
   fi
-fi
+done
