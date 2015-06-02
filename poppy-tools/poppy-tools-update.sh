@@ -6,6 +6,6 @@ while IFS=" " read name file_link
 do
    echo -e "\e[33m$name instalation: \e[0m"
    curl -L $file_link | bash
-   source $HOME/.bash_profile
+   source $HOME/.profile
 
 done < /tmp/install-poppy.conf

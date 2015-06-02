@@ -12,7 +12,7 @@ if [ ! -d "$HOME/.pyenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 
   echo "
-  export PATH=\"\$HOME/.pyenv/bin:\$PATH\"
-  eval \"\$(pyenv init -)\"
-  eval \"\$(pyenv virtualenv-init -)\"" >> $HOME/.bash_profile
+export PATH=\"\$HOME/.pyenv/bin:\$PATH\"
+eval \"\$(pyenv init -)\"
+eval \"\$(pyenv virtualenv-init -)\"" >> $HOME/.profile
 fi
