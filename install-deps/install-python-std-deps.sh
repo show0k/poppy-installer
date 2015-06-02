@@ -1,5 +1,5 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-pip install numpy
-pip install matplotlib
-pip install ipython[all]
+pip install numpy -U
+pip install matplotlib -U
+pip install ipython[all] -U
