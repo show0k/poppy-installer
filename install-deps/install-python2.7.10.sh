@@ -1,4 +1,10 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-pyenv install -s 2.7.10
-pyenv global 2.7.10
+sed -i /PYTHON_VERSION/d $HOME/.bashrc
+echo "export PYTHON_VERSION=2.7.10" >> $HOME/.bashrc
+export PYTHON_VERSION=2.7.10
+
+if [ ! -d "$HOME/.pyenv/versions/$PYTHON_VERSION" ]; then
+  pyenv install -s $PYTHON_VERSION
+  pyenv global $PYTHON_VERSION
+fi
