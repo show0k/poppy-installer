@@ -60,7 +60,7 @@ if [ $command_name = "install" ]; then
   export POPPY_ROOT=/home/poppy/dev
   mkdir -p $POPPY_ROOT
 
-  bash /home/poppy/dev/poppy-tools/poppy-tools-update.sh
+  poppy-tools update
 
 else
   bash /home/poppy/dev/poppy-tools/poppy-tools-$command_name.sh $@ || echo "please try 'poppy-tools help' command"
