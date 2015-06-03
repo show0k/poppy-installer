@@ -30,7 +30,7 @@ echo poppy:poppy | chpasswd
 export HOME=/home/poppy
 su - poppy -c "wget -P  /home/poppy/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-logo"
 sed -i /poppy-logo/d /home/poppy/.bashrc
-echo cat /home/poppy-logo >> /home/poppy/.bashrc
+echo cat /home/poppy/poppy-logo >> /home/poppy/.bashrc
 
 # Allow poppy to use sudo without password
 chmod +w /etc/sudoers
