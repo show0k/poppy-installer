@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-sed -i /PYTHON_VERSION/d $HOME/.bashrc
-echo "export PYTHON_VERSION=2.7.10" >> $HOME/.profile
+sed -i /PYTHON_VERSION/d $HOME/.poppy_profile
+echo "export PYTHON_VERSION=2.7.10" >> $HOME/.poppy_profile
 export PYTHON_VERSION=2.7.10
 
 if [ ! -d "$HOME/.pyenv/versions/$PYTHON_VERSION" ]; then

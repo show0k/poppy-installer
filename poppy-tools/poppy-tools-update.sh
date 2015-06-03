@@ -2,10 +2,13 @@
 
 wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/conf/$POPPY_BOARD/$POPPY_CREATURE/install.conf -O /tmp/install-poppy.conf
 
+sed -i /source\ .poppy_profile/d /home/poppy/.bashrc
+echo "source .poppy_profile" >> /home/poppy/.bashrc
+
 while IFS=" " read name file_link
 do
    echo -e "\e[33m$name instalation: \e[0m"
    curl -L $file_link | bash
-   source $HOME/.profile
+   source $HOME/.poppy_profile
 
 done < /tmp/install-poppy.conf
