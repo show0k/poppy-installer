@@ -11,7 +11,7 @@ fi
 wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-boards -O /tmp/poppy-boards
 if grep -Fxq "$1" /tmp/poppy-boards
   then
-    POPPY_CREATURE=$1
+    POPPY_BOARD=$1
   else
     echo -e "${RED}Unknown poppy-board${NC}"
     exit 0
@@ -20,7 +20,7 @@ fi
 wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-creatures -O /tmp/poppy-creatures
 if grep -Fxq "$2" /tmp/poppy-creatures
   then
-    POPPY_BOARD=$2
+    POPPY_CREATURE=$2
   else
     echo -e "${RED}Unknown poppy-creature${NC}"
     exit 0
