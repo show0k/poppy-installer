@@ -8,7 +8,7 @@ if [ ${EUID} -ne 0 ]; then
   exit 1
 fi
 
-wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-boards /tmp/poppy-boards
+wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-boards -O /tmp/poppy-boards
 if grep -Fxq "$1" /tmp/poppy-boards
   then
     POPPY_CREATURE=$1
@@ -17,7 +17,7 @@ if grep -Fxq "$1" /tmp/poppy-boards
     exit 0
 fi
 
-wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-creatures /tmp/poppy-creatures
+wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-creatures -O /tmp/poppy-creatures
 if grep -Fxq "$2" /tmp/poppy-creatures
   then
     POPPY_BOARD=$2
