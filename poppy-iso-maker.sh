@@ -174,7 +174,7 @@ rpi-update
 apt-get -y install locales console-common ntp openssh-server less vim
 # execute install script at mounted external media (delivery contents folder)
 cd /usr/src/delivery
-./poppy-configure.sh $POPPY_BOARD $POPPY_CREATURE
+sudo ./poppy-configure.sh $POPPY_BOARD $POPPY_CREATURE
 cd
 echo \"root:raspberry\" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
