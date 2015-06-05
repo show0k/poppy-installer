@@ -8,14 +8,17 @@ if [ ${EUID} -ne 0 ]; then
   exit 1
 fi
 
-if grep -Fxq "$1" /home/poppy/dev/poppy-tools/poppy-boards
+wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-boards /tmp/poppy-boards
+if grep -Fxq "$1" /tmp/poppy-boards
   then
     POPPY_CREATURE=$1
   else
     echo -e "${RED}Unknown poppy-board${NC}"
     exit 0
 fi
-if grep -Fxq "$2" /home/poppy/dev/poppy-tools/poppy-creatures
+
+wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-tools/poppy-creatures /tmp/poppy-creatures
+if grep -Fxq "$2" /tmp/poppy-creatures
   then
     POPPY_BOARD=$2
   else
