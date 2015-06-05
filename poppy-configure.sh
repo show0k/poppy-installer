@@ -28,11 +28,11 @@ echo -e "\e[33mCreate a new user \e[4mpoppy\e[0m\e[33m with the default password
 
 POPPY_GROUPS="adm,dialout,sudo,audio,video,plugdev,netdev"
 
-if [ $POPPY_BOARD = "odroid" ];
+if [[ $POPPY_BOARD == "odroid" ]];
 then
   POPPY_GROUPS=$POPPY_GROUPS,fax,cdrom,floppy,tape,dip,lpadmin,fuse
 fi
-if [ $POPPY_BOARD = "rpi" ];
+if [[ $POPPY_BOARD == "rpi" ]];
 then
   POPPY_GROUPS=$POPPY_GROUPS,cdrom,games,users,gpio,i2c,spi,input
 fi
