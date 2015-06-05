@@ -34,7 +34,7 @@ then
 fi
 if [[ $1 == "rpi" ]];
 then
-  POPPY_GROUPS=$POPPY_GROUPS,cdrom,games,users,gpio,i2c,spi,input
+  POPPY_GROUPS=$POPPY_GROUPS,cdrom,games,users
 fi
 
 useradd -m -s /bin/bash -G $POPPY_GROUPS poppy
