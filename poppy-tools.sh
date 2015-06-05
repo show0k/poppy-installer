@@ -36,7 +36,7 @@ if [ $command_name = "install" ]; then
 
   else
       # code if not found
-      echo -e "${RED}Unknown poppy-board${NC}"
+      echo -e "${RED}Unknown poppy-board:$1 ${NC}"
       print_man
       exit 0
   fi
@@ -50,7 +50,7 @@ if [ $command_name = "install" ]; then
 
   else
       # code if not found
-      echo -e "${RED}Unknown poppy-creature${NC}"
+      echo -e "${RED}Unknown poppy-creature$2 ${NC}"
       print_man
       exit 0
   fi
