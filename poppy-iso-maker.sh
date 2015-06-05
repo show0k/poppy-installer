@@ -178,7 +178,7 @@ echo \"root:raspberry\" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -f /etc/udev/rules.d/70-persistent-net.rules
 
-echo -e \"\e[33mStarting to Poppy-ize the Raspbian.\e[0m\""
+echo -e \"\e[33mStarting to Poppy-ize the Raspbian.\e[0m\"
 cd /usr/src/delivery
 bash poppy-configure.sh $POPPY_BOARD $POPPY_CREATURE
 
