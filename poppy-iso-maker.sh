@@ -47,7 +47,7 @@ absolute_path=`cd ${relative_path}; pwd`
 delivery_path=`cd ${absolute_path}/; pwd`
 
 # define destination folder where created image file will be stored
-buildenv=`cd ${absolute_path}; cd ..; mkdir -p images; cd images; pwd`
+buildenv=`cd ${absolute_path}; mkdir -p images; cd images; pwd`
 # buildenv="/tmp/rpi"
 
 # cd ${absolute_path}
