@@ -25,7 +25,20 @@ service avahi-daemon restart
 
 # Create the poppy session
 echo -e "\e[33mCreate a new user \e[4mpoppy\e[0m\e[33m with the default password \e[4mpoppy\e[0m."
-useradd -m -s /bin/bash -G adm,dialout,fax,cdrom,floppy,tape,sudo,audio,dip,video,plugdev,netdev,lpadmin,fuse poppy
+
+POPPY_GROUPS="adm,dialout,sudo,audio,video,plugdev,netdev"
+
+if [ $POPPY_BOARD == "odroid" ];
+then
+  POPPY_GROUPS=$POPPY_GROUPS,fax,cdrom,floppy,tape,dip,lpadmin,fuse
+fi
+if [ $POPPY_BOARD == "rpi" ];
+then
+  POPPY_GROUPS=$POPPY_GROUPS,cdrom,games,users,gpio,i2c,spi,input
+fi
+
+useradd -m -s /bin/bash -G $POPPY_GROUPS poppy
+
 echo poppy:poppy | chpasswd
 export HOME=/home/poppy
 su - poppy -c "wget -P  /home/poppy/ https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-logo"
