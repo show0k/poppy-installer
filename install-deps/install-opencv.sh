@@ -28,5 +28,5 @@ if [ ! -d "$POPPY_ROOT/opencv-$OPENCV_VERSION" ]; then
 
   sudo make install
 
-  ln -s /usr/local/lib/python2.7/site-packages/cv2.so $PYTHON_PREFIX/lib/python2.7/cv2.so
+  ln -s /usr/local/lib/python2.7/dist-packages/cv2.so $PYTHON_PREFIX/lib/python2.7/cv2.so
 fi
