@@ -1,4 +1,4 @@
 language: bash
 
 script:
-  - bash poppy-iso-maker.sh rpi poppy-ergo-jr
+  - sudo bash poppy-iso-maker.sh rpi poppy-ergo-jr
