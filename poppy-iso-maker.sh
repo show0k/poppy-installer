@@ -26,6 +26,7 @@ if grep -Fxq "$2" /tmp/poppy-creatures
     exit 0
 fi
 
+apt-get update
 apt-get install -y binfmt-support qemu qemu-user-static debootstrap kpartx lvm2 dosfstools apt-cacher-ng
 
 deb_mirror="http://archive.raspbian.org/raspbian"
