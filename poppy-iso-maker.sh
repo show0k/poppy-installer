@@ -29,7 +29,7 @@ fi
 apt-get update
 apt-get install -y binfmt-support qemu qemu-user-static debootstrap kpartx lvm2 dosfstools apt-cacher-ng
 
-deb_mirror="http://archive.raspbian.org/raspbian"
+deb_mirror="http://mirrordirector.raspbian.org/raspbian"
 deb_local_mirror="http://localhost:3142/archive.raspbian.org/raspbian"
 
 if [ "${deb_local_mirror}" == "" ]; then
@@ -136,7 +136,7 @@ LANG=C chroot ${rootfs} /debootstrap/debootstrap --second-stage
 
 mount ${bootp} ${bootfs}
 
-echo "deb ${deb_local_mirror} ${deb_release} main contrib non-free
+echo "deb ${deb_local_mirror} ${deb_release} main contrib non-free rpi
 " > etc/apt/sources.list
 
 echo "dwc_otg.lpm_enable=0 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait" > boot/cmdline.txt
@@ -161,7 +161,13 @@ echo "console-common	console-data/keymap/policy	select	Select keymap from full l
 console-common	console-data/keymap/full	select	us
 " > debconf.set
 
+echo "deb http://archive.raspberrypi.org/debian wheezy main
+" > etc/apt/sources.list.d/raspi.list
+
 echo "#!/bin/bash
+
+wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | apt-key add -
+
 debconf-set-selections /debconf.set
 rm -f /debconf.set
 cd /usr/src/delivery
