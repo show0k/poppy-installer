@@ -159,6 +159,10 @@ snd_bcm2835
 
 echo "console-common	console-data/keymap/policy	select	Select keymap from full list
 console-common	console-data/keymap/full	select	us
+
+# Default locale for the system environment:
+# Choices: None, en_US.UTF-8
+locales	locales/default_environment_locale select	en_US.UTF-8
 " > debconf.set
 
 echo "deb http://archive.raspberrypi.org/debian wheezy main
