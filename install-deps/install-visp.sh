@@ -12,6 +12,7 @@ if [ ! -d "$POPPY_ROOT/$VISP" ]; then
 
   wget http://gforge.inria.fr/frs/download.php/latestfile/475/$VISP.tar.gz
   tar xvfz $VISP.tar.gz
+  rm $VISP.tar.gz
 
   cd $VISP/
   mkdir build
