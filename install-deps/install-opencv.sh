@@ -9,6 +9,7 @@ if [ ! -d "$POPPY_ROOT/opencv-$OPENCV_VERSION" ]; then
   sudo apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
   sudo apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
   sudo apt-get install -y libatlas-base-dev gfortran
+  sudo apt-get install -y python-dev python-numpy
 
   cd $POPPY_ROOT
 
