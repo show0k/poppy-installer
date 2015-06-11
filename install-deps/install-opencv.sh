@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPENCV_VERSION=3.0.0
+OPENCV_VERSION=3.0.0-beta
 
 
 if [ ! -d "$POPPY_ROOT/opencv-$OPENCV_VERSION" ]; then
