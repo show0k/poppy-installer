@@ -1,7 +1,5 @@
 #! /bin/bash
 
-# Build Raspbian image, largely inspired by:
-# https://github.com/andrius/build-raspbian-image/
 
 if [ ${EUID} -ne 0 ]; then
   echo "this tool must be run as root"
@@ -26,6 +24,9 @@ if grep -Fxq "$2" /tmp/poppy-creatures
     exit 0
 fi
 
+# Most of the work is actually done by the spindle script
+# https://github.com/pierre-rouanet/spindle
+# Forked form asb
 if [ $POPPY_BOARD = "rpi" ]; then
   old_dir=$(pwd)
 
@@ -46,17 +47,15 @@ if [ $POPPY_BOARD = "rpi" ]; then
   sudo modprobe nbd max_part=16
 
   schroot -c spindle sudo ./downgrade_qemu
-  schroot -c spindle ./wheezy-stage0
-  schroot -c spindle ./wheezy-stage1
-  schroot -c spindle ./wheezy-stage2
-  schroot -c spindle ./wheezy-stage3
-  schroot -c spindle ./wheezy-stage4-lxde
+  
+  ./wheezy-stage0
+  ./wheezy-stage1
+  ./wheezy-stage2
+  ./wheezy-stage3
+  ./wheezy-stage4-lxde
+  ./wheezy-stage5-poppy
 
-  wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-configure.sh
-  chmod +x poppy-configure.sh
-  schroot -c spindle ./poppy-configure.sh $POPPY_BOARD $POPPY_CREATURE
-
-  schroot -c spindle ./helper export_image_for_release out/stage4-lxde.qed stage4-poppy.img
+  ./helper export_image_for_release out/stage4-lxde.qed stage4-poppy.img
 
   today=`date +%Y%m%d`
   deb_release="wheezy"
