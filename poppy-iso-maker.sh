@@ -1,7 +1,5 @@
 #! /bin/bash
 
-# Build Raspbian image, largely inspired by:
-# https://github.com/andrius/build-raspbian-image/
 
 if [ ${EUID} -ne 0 ]; then
   echo "this tool must be run as root"
@@ -26,6 +24,9 @@ if grep -Fxq "$2" /tmp/poppy-creatures
     exit 0
 fi
 
+# Most of the work is actually done by the spindle script
+# https://github.com/pierre-rouanet/spindle
+# Forked form asb
 if [ $POPPY_BOARD = "rpi" ]; then
   old_dir=$(pwd)
 
