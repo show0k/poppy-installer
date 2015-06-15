@@ -34,7 +34,12 @@ then
 fi
 if [[ $1 == "rpi" ]];
 then
-  POPPY_GROUPS=$POPPY_GROUPS,cdrom,games,users
+  RPI_GROUPS=$(groups pi)
+  RPI_GROUPS=${RPI_GROUPS##*:}
+  function join { local IFS="$1"; shift; echo "$*"; }
+  RPI_GROUPS=$(join , $RPI_GROUPS)
+
+  POPPY_GROUPS=$POPPY_GROUPS,$RPI_GROUPS
 fi
 
 useradd -m -s /bin/bash -G $POPPY_GROUPS poppy
