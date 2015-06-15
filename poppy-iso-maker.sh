@@ -53,6 +53,7 @@ if [ $POPPY_BOARD = "rpi" ]; then
   schroot -c spindle ./wheezy-stage4-lxde
 
   wget https://raw.githubusercontent.com/poppy-project/poppy-installer/master/poppy-configure.sh
+  chmod +x poppy-configure.sh
   schroot -c spindle ./poppy-configure.sh $POPPY_BOARD $POPPY_CREATURE
 
   schroot -c spindle ./helper export_image_for_release out/stage4-lxde.qed stage4-poppy.img
