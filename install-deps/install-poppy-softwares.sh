@@ -5,7 +5,7 @@ do
   cd $POPPY_ROOT
 
   if [ ! -z "$use_stable_release" ]; then
-    pip install $repo -U
+    sudo pip install $repo -U
   else
     if [ ! -d "$repo" ]; then
       git clone https://github.com/poppy-project/$repo.git
@@ -18,7 +18,7 @@ do
       cd software
     fi
 
-    python setup.py develop
+    sudo python setup.py develop
 
   fi
 done
