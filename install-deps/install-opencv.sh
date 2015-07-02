@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPENCV_VERSION=3.0.0-beta
+OPENCV_VERSION=3.0.0
 
 
 if [ ! -d "$POPPY_ROOT/opencv-$OPENCV_VERSION" ]; then
@@ -21,13 +21,9 @@ if [ ! -d "$POPPY_ROOT/opencv-$OPENCV_VERSION" ]; then
   mkdir build
   cd build
 
-  PYTHON_PREFIX=$HOME/.pyenv/versions/$PYTHON_VERSION/
-
-  cmake -D PYTHON_EXECUTABLE=/usr/bin/python -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF ..
+  cmake -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF ..
 
   make -j4
 
   sudo make install
-
-  ln -s /usr/local/lib/python2.7/dist-packages/cv2.so $PYTHON_PREFIX/lib/python2.7/cv2.so
 fi
