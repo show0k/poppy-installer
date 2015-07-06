@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Poppy home page</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<body>
+<h1> Hi, welcome to poppy</h1>
+You can choose one of these links to control your poppy-torso:
+
+<section>
+    <header><h2>Control Poppy</h2></header>
+
+<ul>
+<li><p> <a href="/wireless/?page=wireless">Configure wifi and change hostname</a> </p></li>
+<li><p>
+<script>
+var host = "http://"+window.location.hostname;
+document.write('<a href="' + host + ':8888' + '">Open Ipython notebook</a>: to control Poppy with Python code');
+</script>
+</p></li>
+<li><p> <a href="services.php?python=start&web=snap" >Start Snap!</a>, a block programmation webapp. It works faster with chromium/chrome browser</p></li>
+<li><p> <a href="services.php?python=start&web=poppy-monitor">Start Poppy-monitor</a>: a web app to easy start primitives and looking state of motors</p></li>
+
+</ul>
+
+<header><h2>Debug</h2></header>
+<ul>
+<li><p><a href="services.php?python=stop">Kill all acces to motors</a></p></li>
+<li><p><a href="services.log">Display logs</a></p></li>
+</ul>
+</section>
+</body>
+
+</html> 
