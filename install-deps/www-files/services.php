@@ -22,13 +22,7 @@ if($_GET["python"] === "start") {
 		echo "/dev/ttyACM0 is free";
 		// Start poppy-services
 		exec('/home/poppy/.pyenv/shims/poppy-services poppy-torso --http --snap --no-browser > services.log 2>&1 &');
-	   
-        # Redirect to home page
-        echo "
-                <script type=\"text/javascript\">
-                document.location.href=\"index.html\"
-                </script>
-            ";               
+	              
     }
 } elseif($_GET["python"] === "restart") {
 	echo "Restart python";
