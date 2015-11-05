@@ -87,7 +87,7 @@ echo -e "$APACHE_CONF" | sudo tee /etc/apache2/sites-enabled/000-default.conf
 sudo sed -i.bak "s/www-data/$POPPY_USER/g" /etc/apache2/envvars
 
 if [ ! -d "$POPPY_WWW" ]; then
-    mkdir $POPPY_WWW
+    mkdir -p $POPPY_WWW
 fi
 
 # Download sources
