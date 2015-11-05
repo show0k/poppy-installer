@@ -128,17 +128,17 @@ fi
 
 # copy basic Snap! blocks in "libraries" directory
 cd libraries/
-ln -s "$POPPY_ROOT/pypot/pypot/server/pypot-snap-blocks.xml" .
+ln -s "$POPPY_ROOT/pypot/pypot/server/snap_projects/pypot-snap-blocks.xml" .
 echo -e "pypot-snap-blocks.xml Poppy Blocks" >> LIBRARIES
 
 # copy all Snap! projects examples
 cd ../Examples/
 
-xml_files=$POPPY_ROOT
-path="/pypot/pypot/server/*.xml"
-xml_files+=$path
+#xml_files=$POPPY_ROOT
+#path="/pypot/pypot/server/snap_projects/*.xml"
+#xml_files+=$path
 
-for project in "$POPPY_ROOT/pypot/pypot/server/*.xml"; do 
+for project in "$POPPY_ROOT/pypot/pypot/server/snap_projects/*.xml"; do 
     ln -s $project .
     echo -e "add $project to local examples" ;
 done
