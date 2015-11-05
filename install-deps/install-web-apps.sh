@@ -122,7 +122,7 @@ if [ -d "$snap_dir" ]; then
     git clean -df
 else
     # git clone if it was never done
-    git clone https://github.com/show0k/Snap--Build-Your-Own-Blocks.git $snap_dir
+    git clone https://github.com/poppy-project/Snap--Build-Your-Own-Blocks.git $snap_dir
     cd $snap_dir
 fi
 
