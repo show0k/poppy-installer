@@ -81,6 +81,8 @@ APACHE_CONF="
 echo -e "\e[33m\nApache server configuration (it will erase your current configuration)  \e[0m"
 # Tee is used because echo cannot sudo to a file
 echo -e "$APACHE_CONF" | sudo tee /etc/apache2/sites-enabled/000-default.conf
+echo -e "$APACHE_CONF" | sudo tee /etc/apache2/sites-enabled/000-default
+
 
 # Change apache2 user used to execute scripts 
 # This security hole is not too serious because poppy is always used in local network or behind a NAT
