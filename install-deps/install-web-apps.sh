@@ -48,6 +48,14 @@ else
     echo "POPPY_ROOT=$POPPY_ROOT"
 fi
 
+if [ -z ${POPPY_SERVICE_PATH+x} ]; then 
+    POPPY_SERVICE_PATH="/home/poppy/.pyenv/shims/poppy-services"
+    echo -e "export POPPY_SERVICE_PATH=$POPPY_SERVICE_PATH" >> $HOME/.profile
+    echo -e "\x1b[1m\x1b[31mPOPPY_ROOT was not set. Automaticaly set to $POPPY_ROOT \e[0m"
+else
+    echo "POPPY_SERVICE_PATH=$POPPY_SERVICE_PATH"
+fi
+
 ################################################################################
 ## Install Wifi php web app
 ################################################################################
@@ -168,7 +176,12 @@ svn checkout $www_url $POPPY_WWW
 sed -i "s/poppy-torso/$POPPY_CREATURE/g" $POPPY_WWW/services.php
 sed -i "s/poppy-torso/Robot $POPPY_CREATURE/g" $POPPY_WWW/index.html
 
+# Change POPPY_SERVICE_PATH
+sed -i "s/POPPY_SERVICE_PATH/$POPPY_SERVICE_PATH/g" $POPPY_WWW/services.php
+
 # Make $POPPY_USER owner of $POPPY_WWW
 echo -e "\e[33mChange apache execution user to $POPPY_USER\e[0m"
 sudo chown -R $POPPY_USER:$POPPY_USER $POPPY_WWW
+
+
 

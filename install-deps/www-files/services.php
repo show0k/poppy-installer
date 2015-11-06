@@ -21,13 +21,13 @@ if($_GET["python"] === "start") {
 	if (exec('fuser /dev/ttyACM0') == NULL){
 		echo "/dev/ttyACM0 is free";
 		// Start poppy-services
-		exec('/home/poppy/.pyenv/shims/poppy-services poppy-torso --http --snap --no-browser > services.log 2>&1 &');
+		exec('POPPY_SERVICE_PATH poppy-torso --http --snap --no-browser > services.log 2>&1 &');
 	              
     }
 } elseif($_GET["python"] === "restart") {
 	echo "Restart python";
 	exec('fuser -k /dev/ttyACM*');
-	exec('/home/poppy/.pyenv/shims/poppy-services poppy-torso --http --snap --no-browser > services.log 2>&1 &');
+	exec('POPPY_SERVICE_PATH poppy-torso --http --snap --no-browser > services.log 2>&1 &');
 } elseif($_GET["python"] === "stop") {
         echo "Stop python";
         exec('fuser -k /dev/ttyACM*');
