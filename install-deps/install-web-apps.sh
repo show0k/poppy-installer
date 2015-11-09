@@ -177,7 +177,7 @@ sed -i "s/poppy-torso/$POPPY_CREATURE/g" $POPPY_WWW/services.php
 sed -i "s/poppy-torso/Robot $POPPY_CREATURE/g" $POPPY_WWW/index.html
 
 # Change POPPY_SERVICE_PATH
-sed -i "s/POPPY_SERVICE_PATH/$POPPY_SERVICE_PATH/g" $POPPY_WWW/services.php
+sed -i "s#POPPY_SERVICE_PATH#$POPPY_SERVICE_PATH#g" $POPPY_WWW/services.php
 
 # Make $POPPY_USER owner of $POPPY_WWW
 echo -e "\e[33mChange apache execution user to $POPPY_USER\e[0m"
